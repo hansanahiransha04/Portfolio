@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hansana Hiransha — Portfolio</title>
+  <meta name="description" content="Portfolio of Your Name — web developer / designer / whatever" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#6ee7b7;
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --white: #e6eef6;
+      --maxw: 1100px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--white);
+      line-height:1.5;
+    }
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f8fb;
+        --card:#ffffff;
+        --muted:#52606d;
+        --accent:#0f766e;
+        --glass: rgba(15,23,36,0.03);
+        --glass-2: rgba(15,23,36,0.02);
+        --white:#0f1724;
+      }
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(110,231,183,0.04), transparent 6%),
+        radial-gradient(900px 400px at 90% 90%, rgba(94,62,255,0.03), transparent 6%),
+        var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:36px 20px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .wrap{width:100%; max-width:var(--maxw);}
+    header{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:28px;}
+    .brand{display:flex; gap:12px; align-items:center; text-decoration:none; color:inherit;}
+    .logo{width:48px; height:48px; border-radius:10px; background:linear-gradient(135deg,var(--accent),#4b2f7a); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--card); box-shadow: 0 6px 18px rgba(2,6,23,0.4);}
+    .brand h1{font-size:1rem; margin:0; font-weight:700;}
+    .brand p{font-size:0.8rem; color:var(--muted); margin:0;}
+    nav{display:flex; gap:14px; align-items:center;}
+    nav a{color:var(--muted); text-decoration:none; font-weight:600; font-size:0.95rem; padding:8px 12px; border-radius:8px;}
+    nav a:hover{background:var(--glass); color:var(--white);}
+    .hero{display:grid; grid-template-columns:1fr 380px; gap:28px; align-items:stretch;}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border-radius:16px; padding:22px; box-shadow: 0 6px 20px rgba(2,6,23,0.45); border:1px solid var(--glass-2);}
+    .intro{display:flex; flex-direction:column; gap:12px; justify-content:center;}
+    .intro h2{margin:0; font-size:2rem; letter-spacing:-0.6px;}
+    .intro p.lead{margin:0; color:var(--muted); max-width:60ch;}
+    .actions{display:flex; gap:12px; margin-top:12px; flex-wrap:wrap;}
+    .btn{background:var(--accent); color:var(--card); padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:700; display:inline-flex; gap:8px; align-items:center; border:0;}
+    .btn.ghost{background:transparent; color:var(--white); border:1px solid var(--glass); font-weight:600;}
+
+    /* Profile */
+    .profile{display:flex; flex-direction:column; gap:14px; align-items:center; text-align:center; justify-content:center;}
+    .avatar{width:120px; height:120px; border-radius:18px; overflow:hidden; display:inline-grid; place-items:center; box-shadow: 0 8px 30px rgba(2,6,23,0.45); border:1px solid var(--glass-2); background:linear-gradient(180deg, rgba(255,255,255,0.025), transparent);}
+    .avatar img{width:100%; height:100%; object-fit:cover;}
+    .name{font-weight:700; font-size:1.05rem;}
+    .role{color:var(--muted); font-size:0.95rem;}
+
+    .section{margin-top:28px;}
+    .grid{display:grid; gap:16px; grid-template-columns:repeat(3,1fr);}
+    .project{display:flex; flex-direction:column; gap:12px; padding:12px; min-height:160px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent); border:1px solid var(--glass-2);}
+    .project .thumb{height:100px; border-radius:10px; background:linear-gradient(135deg,#0ea5a9, #7c3aed); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.95); font-weight:700;}
+    .project h3{margin:0; font-size:1rem;}
+    .project p{margin:0; color:var(--muted); font-size:0.9rem;}
+
+    .skills{display:flex; gap:12px; flex-wrap:wrap;}
+    .skill{padding:8px 10px; border-radius:999px; background:var(--glass); color:var(--muted); font-weight:600; font-size:0.9rem;}
+    .contact-grid{display:grid; grid-template-columns:1fr 320px; gap:18px; align-items:start;}
+    .contact-form input, .contact-form textarea{width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--glass-2); background:transparent; color:var(--white); outline:none; box-sizing:border-box;}
+    .contact-form textarea{min-height:130px; resize:vertical;}
+    footer{margin-top:36px; display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:0.9rem;}
+
+    @media (max-width:980px){.hero{grid-template-columns:1fr;} .grid{grid-template-columns:repeat(2,1fr);} .contact-grid{grid-template-columns:1fr;}}
+    @media (max-width:560px){.grid{grid-template-columns:1fr;} nav{display:none;} header{gap:8px;} .brand p{display:none;} .intro h2{font-size:1.5rem;}}
+    .muted{color:var(--muted);}
+    a.inline{color:var(--accent); text-decoration:none; font-weight:700;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#hero">
+        <img src="profile.png" class="logo" alt="Hansana Hiransha">
+        <div>
+          <h1>Hansana Hiransha</h1>
+          <p>Web Developer • Designer</p>
+        </div>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="hero" class="hero">
+        <div class="card intro">
+          <div>
+            <h2>Hi, I'm <span style="color:var(--accent)">Hansana Hiransha </span> — I build beautiful web experiences.</h2>
+            <p class="lead">Front-end developer and UI/UX enthusiast. I specialize in responsive interfaces and interactive web apps using HTML, CSS, JavaScript and modern frameworks.</p>
+          </div>
+          <div class="actions">
+            <a class="btn" href="#projects">See projects</a>
+            <a class="btn ghost" href="mailto:hansanahiranshaug@gmail.com">Hire me</a>
+            <a class="btn ghost" href="#" onclick="downloadResume()">Download CV</a>
+          </div>
+        </div>
+
+        <aside class="card profile">
+          <div class="avatar" aria-hidden="true">
+            <img src="profile.png" alt="Hansana Hiransha">
+          </div>
+          <div>
+            <div class="name">Hansana Hiransha</div>
+            <div class="role muted">Front-end Developer</div>
+          </div>
+          <div style="display:flex; gap:10px;">
+            <a class="btn ghost" href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn ghost" href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section">
+        <div class="card">
+          <h3 style="margin-top:0">About me</h3>
+          <p class="muted">I build interfaces that people enjoy using. Over the last X years I've worked on projects in e-commerce, dashboards, and landing pages. I focus on performance, accessibility and clean UI.</p>
+          <div style="display:flex; gap:18px; margin-top:14px; flex-wrap:wrap;">
+            <div style="min-width:220px;"><strong>Location</strong><div class="muted">Galle, Sri Lanka</div></div>
+            <div style="min-width:220px;"><strong>Availability</strong><div class="muted">Open for freelance</div></div>
+            <div style="min-width:220px;"><strong>Email</strong><div class="muted"><a class="inline" href="mailto:hansanahiranshaug@gmail.com">hansanahiranshaug@gmail.com</a></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="section">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px;">
+          <h3 style="margin:0">Selected Projects</h3>
+          <div class="muted">More on <a class="inline" href="https://github.com/yourusername" target="_blank">GitHub</a></div>
+        </div>
+        <div class="grid">
+          <article class="project card"><div class="thumb">Project A</div><h3>Project Title A</h3><p class="muted">Short description. Built with HTML, CSS, JavaScript. <a class="inline" href="#" target="_blank">Live</a> • <a class="inline" href="#" target="_blank">Code</a></p></article>
+          <article class="project card"><div class="thumb">Project B</div><h3>Project Title B</h3><p class="muted">Short description. Focus on performance and accessibility. <a class="inline" href="#" target="_blank">Live</a></p></article>
+          <article class="project card"><div class="thumb">Project C</div><h3>Project Title C</h3><p class="muted">Short description. UI/UX design + implementation. <a class="inline" href="#" target="_blank">Case study</a></p></article>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="section">
+        <div class="card">
+          <h3 style="margin-top:0">Skills & Tools</h3>
+          <div class="skills" style="margin-top:10px;">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS / Flexbox / Grid</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React</div>
+            <div class="skill">Tailwind CSS</div>
+            <div class="skill">Figma</div>
+            <div class="skill">Accessibility</div>
+            <div class="skill">Performance</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section">
+        <div style="display:flex; gap:18px; flex-direction:column;">
+          <h3 style="margin:0">Contact</h3>
+          <div class="contact-grid">
+            <div class="card contact-form">
+              <form action="mailto:hansanahiranshaug@gmail.com" method="post" enctype="text/plain" onsubmit="alert('This form opens your email client. Replace with backend or Form provider to accept submissions.');">
+                <label class="muted" style="font-size:0.85rem;">Name</label>
+                <input required type="text" name="Name" placeholder="Your name" />
+                <label class="muted" style="font-size:0.85rem; margin-top:8px;">Email</label>
+                <input required type="email" name="Email" placeholder="you@example.com" />
+                <label class="muted" style="font-size:0.85rem; margin-top:8px;">Message</label>
+                <textarea required name="Message" placeholder="Tell me about your project..."></textarea>
+                <div style="display:flex; gap:8px; margin-top:10px;">
+                  <button type="submit" class="btn">Send</button>
+                  <a class="btn ghost" href="mailto:hansanahiranshaug@gmail.com">Or email me</a>
+                </div>
+              </form>
+            </div>
+            <div class="card" aria-hidden="true">
+              <h4 style="margin-top:0">Let's build something</h4>
+              <p class="muted">Freelance, contract or full-time — I love working on UI-focused projects. Send a brief and I’ll respond within 24–48 hours.</p>
+              <div style="margin-top:14px;">
+                <strong>Phone</strong>
+                <div class="muted">+94 740366604</div>
+                <strong style="margin-top:8px; display:block;">Location</strong>
+                <div class="muted">Galle, Sri Lanka</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Hansana Hiransha</div>
+      <div class="muted">Made with ♥ • <a class="inline" href="#projects">Projects</a></div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function downloadResume(){
+      const url = 'resume.pdf';
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
